@@ -20,8 +20,8 @@ This repository stores the data and code for the paper "A deep transfer learning
 1. [Porphyrin-based dyes database](https://cmrdb.fysik.dtu.dk/dssc/)
 
 ### References for source code of BERT-based models
-1. [Prediction of chemical reaction yields using deep learning](https://github.com/rxn4chemistry/rxn_yields)
-2. [Data augmentation strategies to improve reaction yield predictions and estimate uncertainty](https://github.com/rxn4chemistry/rxnfp)
+2. [Prediction of chemical reaction yields using deep learning](https://github.com/rxn4chemistry/rxn_yields)
+3. [Mapping the space of chemical reactions using attention-based neural networks](https://github.com/rxn4chemistry/rxnfp)
 
 ### References for source code of DMPNN-based models
-3. [Analyzing learned molecular representations for property prediction](https://github.com/chemprop/chemprop)
+4. [Analyzing learned molecular representations for property prediction](https://github.com/chemprop/chemprop)
