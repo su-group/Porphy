@@ -1,0 +1,330 @@
+Command line
+python /home/dell/anaconda3/envs/chemprop/bin/chemprop_train --data_path MpPD.csv --dataset_type regression --save_dir HOMO_transfer --split_size 0.8 0.1 0.1 --checkpoint_dir PBDD_HOMO --dropout 0.2 --target_columns HOMO --epochs 20 --gpu 0 --seed 0 --num_folds 2
+Args
+{'activation': 'ReLU',
+ 'adding_h': False,
+ 'aggregation': 'mean',
+ 'aggregation_norm': 100,
+ 'atom_descriptor_scaling': True,
+ 'atom_descriptors': None,
+ 'atom_descriptors_path': None,
+ 'atom_descriptors_size': 0,
+ 'atom_features_size': 0,
+ 'atom_messages': False,
+ 'batch_size': 50,
+ 'bias': False,
+ 'bias_solvent': False,
+ 'bond_feature_scaling': True,
+ 'bond_features_path': None,
+ 'bond_features_size': 0,
+ 'cache_cutoff': 10000,
+ 'checkpoint_dir': 'PBDD_HOMO',
+ 'checkpoint_frzn': None,
+ 'checkpoint_path': None,
+ 'checkpoint_paths': ['PBDD_HOMO/fold_0/model_0/model.pt'],
+ 'class_balance': False,
+ 'config_path': None,
+ 'crossval_index_dir': None,
+ 'crossval_index_file': None,
+ 'crossval_index_sets': None,
+ 'cuda': True,
+ 'data_path': 'MpPD.csv',
+ 'data_weights_path': None,
+ 'dataset_type': 'regression',
+ 'depth': 3,
+ 'depth_solvent': 3,
+ 'device': device(type='cuda', index=0),
+ 'dropout': 0.2,
+ 'empty_cache': False,
+ 'ensemble_size': 1,
+ 'epochs': 20,
+ 'evidential_regularization': 0,
+ 'explicit_h': False,
+ 'extra_metrics': [],
+ 'features_generator': None,
+ 'features_only': False,
+ 'features_path': None,
+ 'features_scaling': True,
+ 'features_size': None,
+ 'ffn_hidden_size': 300,
+ 'ffn_num_layers': 2,
+ 'final_lr': 0.0001,
+ 'folds_file': None,
+ 'freeze_first_only': False,
+ 'frzn_ffn_layers': 0,
+ 'gpu': 0,
+ 'grad_clip': None,
+ 'hidden_size': 300,
+ 'hidden_size_solvent': 300,
+ 'ignore_columns': None,
+ 'init_lr': 0.0001,
+ 'log_frequency': 10,
+ 'loss_function': 'mse',
+ 'max_data_size': None,
+ 'max_lr': 0.001,
+ 'metric': 'rmse',
+ 'metrics': ['rmse'],
+ 'minimize_score': True,
+ 'mpn_shared': False,
+ 'multiclass_num_classes': 3,
+ 'no_atom_descriptor_scaling': False,
+ 'no_bond_features_scaling': False,
+ 'no_cache_mol': False,
+ 'no_cuda': False,
+ 'no_features_scaling': False,
+ 'num_folds': 2,
+ 'num_lrs': 1,
+ 'num_tasks': 1,
+ 'num_workers': 8,
+ 'number_of_molecules': 1,
+ 'overwrite_default_atom_features': False,
+ 'overwrite_default_bond_features': False,
+ 'phase_features_path': None,
+ 'pytorch_seed': 0,
+ 'quiet': False,
+ 'reaction': False,
+ 'reaction_mode': 'reac_diff',
+ 'reaction_solvent': False,
+ 'resume_experiment': False,
+ 'save_dir': 'HOMO_transfer',
+ 'save_preds': False,
+ 'save_smiles_splits': True,
+ 'seed': 0,
+ 'separate_test_atom_descriptors_path': None,
+ 'separate_test_bond_features_path': None,
+ 'separate_test_features_path': None,
+ 'separate_test_path': None,
+ 'separate_test_phase_features_path': None,
+ 'separate_val_atom_descriptors_path': None,
+ 'separate_val_bond_features_path': None,
+ 'separate_val_features_path': None,
+ 'separate_val_path': None,
+ 'separate_val_phase_features_path': None,
+ 'show_individual_scores': False,
+ 'smiles_columns': ['\ufeffsmiles'],
+ 'spectra_activation': 'exp',
+ 'spectra_phase_mask_path': None,
+ 'spectra_target_floor': 1e-08,
+ 'split_key_molecule': 0,
+ 'split_sizes': [0.8, 0.1, 0.1],
+ 'split_type': 'random',
+ 'target_columns': ['HOMO'],
+ 'target_weights': None,
+ 'task_names': ['HOMO'],
+ 'test': False,
+ 'test_fold_index': None,
+ 'train_data_size': None,
+ 'undirected': False,
+ 'use_input_features': False,
+ 'val_fold_index': None,
+ 'warmup_epochs': 2.0}
+Setting molecule featurization parameters to default.
+Loading data
+Number of tasks = 1
+Fold 0
+Splitting data with seed 0
+Total size = 361 | train size = 288 | val size = 36 | test size = 37
+Fitting scaler
+Loading model 0 from PBDD_HOMO/fold_0/model_0/model.pt
+Loading pretrained parameter "encoder.encoder.0.cached_zero_vector".
+Loading pretrained parameter "encoder.encoder.0.W_i.weight".
+Loading pretrained parameter "encoder.encoder.0.W_h.weight".
+Loading pretrained parameter "encoder.encoder.0.W_o.weight".
+Loading pretrained parameter "encoder.encoder.0.W_o.bias".
+Loading pretrained parameter "ffn.1.weight".
+Loading pretrained parameter "ffn.1.bias".
+Loading pretrained parameter "ffn.4.weight".
+Loading pretrained parameter "ffn.4.bias".
+Moving model to cuda
+MoleculeModel(
+  (encoder): MPN(
+    (encoder): ModuleList(
+      (0): MPNEncoder(
+        (dropout_layer): Dropout(p=0.2, inplace=False)
+        (act_func): ReLU()
+        (W_i): Linear(in_features=147, out_features=300, bias=False)
+        (W_h): Linear(in_features=300, out_features=300, bias=False)
+        (W_o): Linear(in_features=433, out_features=300, bias=True)
+      )
+    )
+  )
+  (ffn): Sequential(
+    (0): Dropout(p=0.2, inplace=False)
+    (1): Linear(in_features=300, out_features=300, bias=True)
+    (2): ReLU()
+    (3): Dropout(p=0.2, inplace=False)
+    (4): Linear(in_features=300, out_features=1, bias=True)
+  )
+)
+Number of parameters = 355,201
+Moving model to cuda
+Epoch 0
+Validation rmse = 0.398682
+Epoch 1
+Loss = 8.2902e-01, PNorm = 55.6833, GNorm = 1.1620, lr_0 = 9.5012e-04
+Validation rmse = 0.334150
+Epoch 2
+Validation rmse = 0.273100
+Epoch 3
+Loss = 4.6401e-01, PNorm = 55.7582, GNorm = 1.2298, lr_0 = 7.3564e-04
+Validation rmse = 0.211198
+Epoch 4
+Validation rmse = 0.164164
+Epoch 5
+Loss = 1.2746e-01, PNorm = 55.8171, GNorm = 0.7678, lr_0 = 5.5519e-04
+Validation rmse = 0.137284
+Epoch 6
+Loss = 9.4422e-02, PNorm = 55.8387, GNorm = 0.6068, lr_0 = 4.2987e-04
+Validation rmse = 0.092387
+Epoch 7
+Validation rmse = 0.078969
+Epoch 8
+Loss = 5.9322e-02, PNorm = 55.8523, GNorm = 0.5092, lr_0 = 3.3283e-04
+Validation rmse = 0.076904
+Epoch 9
+Validation rmse = 0.071674
+Epoch 10
+Loss = 4.6809e-02, PNorm = 55.8583, GNorm = 0.3132, lr_0 = 2.5119e-04
+Validation rmse = 0.069317
+Epoch 11
+Validation rmse = 0.072447
+Epoch 12
+Loss = 4.2233e-02, PNorm = 55.8623, GNorm = 0.3180, lr_0 = 1.9449e-04
+Validation rmse = 0.074548
+Epoch 13
+Loss = 4.0739e-02, PNorm = 55.8654, GNorm = 0.3383, lr_0 = 1.4678e-04
+Validation rmse = 0.070834
+Epoch 14
+Validation rmse = 0.067284
+Epoch 15
+Loss = 3.6987e-02, PNorm = 55.8665, GNorm = 0.2268, lr_0 = 1.1365e-04
+Validation rmse = 0.067792
+Epoch 16
+Validation rmse = 0.067842
+Epoch 17
+Loss = 3.7710e-02, PNorm = 55.8671, GNorm = 0.6546, lr_0 = 1.0000e-04
+Validation rmse = 0.067004
+Epoch 18
+Validation rmse = 0.066071
+Epoch 19
+Loss = 5.9320e-02, PNorm = 55.8675, GNorm = 0.2697, lr_0 = 1.0000e-04
+Validation rmse = 0.063797
+Model 0 best validation rmse = 0.063797 on epoch 19
+Loading pretrained parameter "encoder.encoder.0.cached_zero_vector".
+Loading pretrained parameter "encoder.encoder.0.W_i.weight".
+Loading pretrained parameter "encoder.encoder.0.W_h.weight".
+Loading pretrained parameter "encoder.encoder.0.W_o.weight".
+Loading pretrained parameter "encoder.encoder.0.W_o.bias".
+Loading pretrained parameter "ffn.1.weight".
+Loading pretrained parameter "ffn.1.bias".
+Loading pretrained parameter "ffn.4.weight".
+Loading pretrained parameter "ffn.4.bias".
+Moving model to cuda
+Model 0 test rmse = 0.060222
+Ensemble test rmse = 0.060222
+Fold 1
+Splitting data with seed 1
+Total size = 361 | train size = 288 | val size = 36 | test size = 37
+Fitting scaler
+Loading model 0 from PBDD_HOMO/fold_0/model_0/model.pt
+Loading pretrained parameter "encoder.encoder.0.cached_zero_vector".
+Loading pretrained parameter "encoder.encoder.0.W_i.weight".
+Loading pretrained parameter "encoder.encoder.0.W_h.weight".
+Loading pretrained parameter "encoder.encoder.0.W_o.weight".
+Loading pretrained parameter "encoder.encoder.0.W_o.bias".
+Loading pretrained parameter "ffn.1.weight".
+Loading pretrained parameter "ffn.1.bias".
+Loading pretrained parameter "ffn.4.weight".
+Loading pretrained parameter "ffn.4.bias".
+Moving model to cuda
+MoleculeModel(
+  (encoder): MPN(
+    (encoder): ModuleList(
+      (0): MPNEncoder(
+        (dropout_layer): Dropout(p=0.2, inplace=False)
+        (act_func): ReLU()
+        (W_i): Linear(in_features=147, out_features=300, bias=False)
+        (W_h): Linear(in_features=300, out_features=300, bias=False)
+        (W_o): Linear(in_features=433, out_features=300, bias=True)
+      )
+    )
+  )
+  (ffn): Sequential(
+    (0): Dropout(p=0.2, inplace=False)
+    (1): Linear(in_features=300, out_features=300, bias=True)
+    (2): ReLU()
+    (3): Dropout(p=0.2, inplace=False)
+    (4): Linear(in_features=300, out_features=1, bias=True)
+  )
+)
+Number of parameters = 355,201
+Moving model to cuda
+Epoch 0
+Validation rmse = 0.372581
+Epoch 1
+Loss = 7.5347e-01, PNorm = 55.6982, GNorm = 2.1354, lr_0 = 9.5012e-04
+Validation rmse = 0.299836
+Epoch 2
+Validation rmse = 0.233209
+Epoch 3
+Loss = 4.6324e-01, PNorm = 55.7850, GNorm = 0.9289, lr_0 = 7.3564e-04
+Validation rmse = 0.168664
+Epoch 4
+Validation rmse = 0.122453
+Epoch 5
+Loss = 1.3888e-01, PNorm = 55.8443, GNorm = 0.8030, lr_0 = 5.5519e-04
+Validation rmse = 0.101932
+Epoch 6
+Loss = 9.5979e-02, PNorm = 55.8631, GNorm = 0.6756, lr_0 = 4.2987e-04
+Validation rmse = 0.070644
+Epoch 7
+Validation rmse = 0.052356
+Epoch 8
+Loss = 5.2139e-02, PNorm = 55.8743, GNorm = 0.3597, lr_0 = 3.3283e-04
+Validation rmse = 0.056776
+Epoch 9
+Validation rmse = 0.053284
+Epoch 10
+Loss = 4.5514e-02, PNorm = 55.8819, GNorm = 0.3707, lr_0 = 2.5119e-04
+Validation rmse = 0.054195
+Epoch 11
+Validation rmse = 0.055776
+Epoch 12
+Loss = 2.0046e-02, PNorm = 55.8879, GNorm = 0.3041, lr_0 = 1.9449e-04
+Validation rmse = 0.054928
+Epoch 13
+Loss = 3.3231e-02, PNorm = 55.8912, GNorm = 0.2761, lr_0 = 1.4678e-04
+Validation rmse = 0.056827
+Epoch 14
+Validation rmse = 0.058627
+Epoch 15
+Loss = 3.2088e-02, PNorm = 55.8929, GNorm = 0.3799, lr_0 = 1.1365e-04
+Validation rmse = 0.057945
+Epoch 16
+Validation rmse = 0.057010
+Epoch 17
+Loss = 2.4387e-02, PNorm = 55.8936, GNorm = 0.1628, lr_0 = 1.0000e-04
+Validation rmse = 0.057008
+Epoch 18
+Validation rmse = 0.056348
+Epoch 19
+Loss = 2.1872e-02, PNorm = 55.8944, GNorm = 0.3242, lr_0 = 1.0000e-04
+Validation rmse = 0.055632
+Model 0 best validation rmse = 0.052356 on epoch 7
+Loading pretrained parameter "encoder.encoder.0.cached_zero_vector".
+Loading pretrained parameter "encoder.encoder.0.W_i.weight".
+Loading pretrained parameter "encoder.encoder.0.W_h.weight".
+Loading pretrained parameter "encoder.encoder.0.W_o.weight".
+Loading pretrained parameter "encoder.encoder.0.W_o.bias".
+Loading pretrained parameter "ffn.1.weight".
+Loading pretrained parameter "ffn.1.bias".
+Loading pretrained parameter "ffn.4.weight".
+Loading pretrained parameter "ffn.4.bias".
+Moving model to cuda
+Model 0 test rmse = 0.074090
+Ensemble test rmse = 0.074090
+2-fold cross validation
+	Seed 0 ==> test rmse = 0.060222
+	Seed 1 ==> test rmse = 0.074090
+Overall test rmse = 0.067156 +/- 0.006934
+Elapsed time = 0:00:21
