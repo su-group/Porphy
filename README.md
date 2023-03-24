@@ -5,6 +5,17 @@
 ### Description
 This repository stores the data and code for the paper "A deep transfer learning approach is used to predict HOMO/LUMO energies of organic materials with a small amount of training data", which has been published on Physical Chemistry and Chemical Physics (PCCP) <br> DOI: [10.1039/D3CP00917C](https://pubs.rsc.org/en/Content/ArticleLanding/2023/CP/D3CP00917C)
 
+### Installation
+1. Python 3.10.5
+2. Pytorch 1.12.0
+3. pandas 1.4.1
+4. numpy 1.23.1
+5. simpletransformers 0.34.4
+6. rxnfp 0.0.7
+7. rxnfp-yields  0.0.1
+7. rdkit 2022.03.4
+9. chemprop  1.5.2
+
 ### Reference for pre-training source data
 1. [Porphyrin-based dyes database](https://cmrdb.fysik.dtu.dk/dssc/)
 
